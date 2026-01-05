@@ -9,7 +9,7 @@ My personal portfolio site with a simple dApp demo. The front-end connects to a 
 
 ### Front-end
 
-1. Open `front-end/index.html` in a browser (or use a local server)
+1. Open the project using live server VS Code extension only, do not run the html file diretly
 2. Make sure you have MetaMask installed
 3. Connect your wallet and try the Simple Storage demo
 
