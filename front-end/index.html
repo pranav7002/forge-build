@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>pranavai</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-flex-box">
+    <div class="portfolio">
+      <div class="portfolio-top">
+        <div>
+          <div class="hi">
+            <p class="heading">
+              Hi!
+            </p>
+            <img class="hand-wave" src="icons/waving-hand.png">
+          </div>
+          <div>
+            <p class="name-heading">
+            I'm <span class="name">Pranav Rai.</span> 
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="buttons">
+            <button class="button">
+              <img class="button-icon" src="icons/email-icon.png">
+            </button>
+            <a href="https://github.com/pranav7002" target="_blank">
+            <button class="button">
+              <img class="button-icon" src="icons/github-icon.png">
+            </button>
+            </a>
+            <a href="https://www.linkedin.com/in/pranav-r-445022273" target="_blank">
+            <button class="button">
+              <img class="button-icon" src="icons/linkedin-icon.png">
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>      
+      <div class="portfolio-bottom">
+        <p class="intro">
+          I'm a developer actively building on Ethereum. Over the past months I've written, tested, and deployed smart contracts, worked on real on-chain projects, and learned by shipping. This portfolio is a snapshot of what I'm building and exploring
+        </p>
+      </div>
+    </div>
+    <div class="dapp">
+      <p class="simple-storage-heading">
+        Simple Storage 
+      </p>
+      <button class="interaction-button-connect" id="connect-button">Connect MetaMask</button>
+      <div class="list">
+      <input type="text" placeholder="Number" id="number">
+      <button class="interaction-button-set" id="set-button">Set</button>
+      </div>
+      <button class="interaction-button-get" id="get-button">Get Number</button>
+    </div>
+  </div>
+  <script type="module" src="index.js"/>
+</body>
+</html>
