@@ -75,6 +75,6 @@ contract LedgerTest is Test {
         vm.prank(USER);
         vm.expectEmit(true, true, true, false, address(ledger));
         emit Ledger.EthDeposited(USER, TEST_DEPOSIT_AMOUNT);
-        ledger.deposit{value: TEST_DEPOSIT_AMOUNT}();        
+        ledger.deposit{value: TEST_DEPOSIT_AMOUNT}();
     }
 }
