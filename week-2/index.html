@@ -2,22 +2,34 @@
 <html>
 <head>
   <title>Ledger</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <button id="connect-button">
+  <button id="connect-button" class="connect-button">
     Connect MetaMask
   </button>
-  <p>
-    balance: <span id="balance"></span> 
-  </p>
-  <input id="eth-amount-deposit" type="number" inputmode="decimal" placeholder="ETH Amount"/>
-  <button id="deposit-button">
-    Deposit
-  </button>
-  <input id="eth-amount-withdraw" type="number" inputmode="decimal" placeholder="ETH Amount"/>
-  <button id="withdraw-button">
-    Withdraw
-  </button>
+  <div class="dapp">
+    <div class="balance-display">
+      <p class="balance-heading">
+        Balance
+      </p>
+      <p>
+        <span id="balance" class="balance"></span> 
+      </p>
+    </div>
+    <div class="list">
+      <input id="eth-amount-deposit" type="number" inputmode="decimal" placeholder="ETH Amount"/>
+      <button id="deposit-button" class="interaction-button">
+        Deposit
+      </button>
+    </div>
+    <div class="list">
+      <input id="eth-amount-withdraw" type="number" inputmode="decimal" placeholder="ETH Amount"/>
+      <button id="withdraw-button" class="interaction-button">
+        Withdraw
+      </button>
+    </div>
+  </div>
   <script type="module" src="index.js"></script>
 </body>
 </html>

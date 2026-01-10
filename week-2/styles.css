@@ -1,0 +1,91 @@
+body {
+  background-image: url("bg.png");
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+.dapp {
+  background-color: #1F1F1F;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 23vh auto;
+
+}
+
+p {
+  color: #c8c8c7;
+}
+
+input {
+  width: 500px;
+  height: 100px;
+  padding-left: 15px;
+  background: rgb(40, 40, 40);
+  color: #c8c8c7;
+  border: 1px solid #c8c8c7;
+  border-radius: 8px 0 0 8px;
+  font-size: 30px;
+}
+
+.interaction-button {
+  width: 200px;
+  height: 104px;
+  margin-left: -5px;
+  background: rgb(40, 40, 40);
+  color: #c8c8c7;
+  border: 1px solid #c8c8c7;
+  border-radius: 0 8px 8px 0;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button {
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 70%;
+}
+
+button:active {
+  opacity: 40%;
+}
+
+.list {
+  margin: 20px 20px 20px 38px;
+}
+
+.balance {
+  color: #c8c8c7;  
+  font-size: 24px;
+  margin: 0;
+}
+
+.balance-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balance-heading {
+  font-size: 36px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.connect-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color:aliceblue;
+  color: #1F1F1F;
+  min-width: 180px;
+  height: 50px;
+  border: 2px solid #1F1F1F;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+}
