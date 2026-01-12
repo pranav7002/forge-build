@@ -1,36 +1,14 @@
-# Portfolio Website
+# Portfolio & Simple Storage
 
-My personal portfolio site with a simple dApp demo. The front-end connects to a SimpleStorage smart contract on Sepolia testnet.
+Hey! This is my Week 1 project. It's a personal portfolio website that also includes a simple decentralized app (dApp).
 
-## What's Here
+**Live Demo:** [https://pranavrai.vercel.app](https://pranavrai.vercel.app)
 
-- **Portfolio section**: Basic intro and links
-- **Simple Storage dApp**: Connect your MetaMask wallet and interact with a smart contract that stores a number on-chain
+## What it does
+- **Portfolio:** Introduces me and links to my socials.
+- **Simple Storage:** You can connect your MetaMask wallet and store a number on the Sepolia testnet!
 
-### Front-end
-
-1. Open the project using live server VS Code extension only, do not run the html file diretly
-2. Make sure you have MetaMask installed
-3. Connect your wallet and try the Simple Storage demo
-
-The front-end uses viem via CDN, so you'll need an internet connection.
-
-### Smart Contracts
-
-The contracts are in the `smart-contacts` folder. Built with Foundry.
-
-```bash
-cd smart-contacts
-forge build
-forge test
-```
-
-The SimpleStorage contract is deployed at `0xE4d81B02e63E02871D6ef211786bD7A11130A2b3` on Sepolia.
-
-## Tech Stack
-
-- Vanilla JavaScript + HTML/CSS for the front-end
-- viem for Ethereum interactions
-- Foundry for smart contract development
-- Solidity ^0.8.0
-
+## How to run it locally
+1. Open this folder in VS Code.
+2. Use the "Live Server" extension to "Go Live".
+3. Connect your MetaMask wallet (make sure you're on Sepolia).
