@@ -1,5 +1,5 @@
 import { abi, contractAddress } from "./constants.js"
-import { createWalletClient, createPublicClient, http, custom, parseEther } from 'https://esm.sh/viem'
+import { createWalletClient, createPublicClient, http, custom, parseEther, formatEther } from 'https://esm.sh/viem'
 import { sepolia } from 'https://esm.sh/viem/chains'
 
 const connectButton = document.getElementById("connect-button")
@@ -13,10 +13,10 @@ let address
 let walletClient
 let balance
 
-const publicClient = createPublicClient({ 
-  chain: sepolia, 
-  transport: http("https://eth-sepolia.g.alchemy.com/v2/dVbnDaox5HeNEFqMXegjG"), 
-}) 
+const publicClient = createPublicClient({
+  chain: sepolia,
+  transport: http("https://eth-sepolia.g.alchemy.com/v2/dVbnDaox5HeNEFqMXegjG"),
+})
 
 async function connectWallet() {
   walletClient = createWalletClient({
@@ -30,18 +30,19 @@ async function connectWallet() {
 }
 
 async function deposit() {
-const { request } = await publicClient.simulateContract({
-  address: contractAddress,
-  abi,
-  functionName: 'deposit',
-  value: parseEther(ethInputDeposit.value),
-  account: address
-})
-  
-  const hash = await walletClient.writeContract(request)  
+  const { request } = await publicClient.simulateContract({
+    address: contractAddress,
+    abi,
+    functionName: 'deposit',
+    value: parseEther(ethInputDeposit.value),
+    account: address
+  })
+
+  const hash = await walletClient.writeContract(request)
   console.log(`The transaction hash is: ${hash}`)
 
   await publicClient.waitForTransactionReceipt({ hash })
+  await updateHistory()
 }
 
 async function withdraw(_withdrawAmount) {
@@ -52,11 +53,12 @@ async function withdraw(_withdrawAmount) {
     args: [parseEther(_withdrawAmount)],
     account: address
   })
-  
-  const hash = await walletClient.writeContract(request)  
+
+  const hash = await walletClient.writeContract(request)
   console.log(`The transaction hash is: ${hash}`)
 
   await publicClient.waitForTransactionReceipt({ hash })
+  await updateHistory() 
 }
 
 async function getBalance() {
@@ -65,12 +67,12 @@ async function getBalance() {
     abi,
     functionName: 'getBalance',
     account: address
-  })  
+  })
 
   return balance
 }
 
-async function updateBalance() { 
+async function updateBalance() {
   balance = (Number(await getBalance()) / 1e18)
   balanceDisplay.innerText = `${balance} ETH`
 }
@@ -79,9 +81,10 @@ connectButton.onclick = async () => {
   if (!window.ethereum) {
     alert(`Add MetaMask to browser!`)
     return
-  }  
+  }
   await connectWallet()
   await updateBalance()
+  await updateHistory()
 }
 
 
@@ -105,5 +108,26 @@ withdrawButton.onclick = async () => {
   await updateBalance()
 }
 
+async function updateHistory() {
+  const history = await publicClient.readContract({
+    address: contractAddress,
+    abi,
+    functionName: "getTransactionHistory"
+  });
+
+  const container = document.getElementById("history");
+  container.innerHTML = "";
+
+  for (let i = history.length - 1; i >= 0; i--) {
+    const tx = history[i];
+    const div = document.createElement("div");
+    div.className = "history-item";
+    const type = tx.transactionType === 0 ? "WITHDRAW" : "DEPOSIT";
+    div.innerText = `Type: ${type} \n Amount: ${formatEther(tx.transactionAmount)} ETH \n Account: ${tx.account}`;
+    container.appendChild(div);
+  }
+}
+
+updateHistory();
 
 
