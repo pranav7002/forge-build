@@ -1,6 +1,6 @@
 # Simple AMM
 
-A minimal AMM implementation for the hackathon, using gas-efficient custom errors.
+A minimal AMM implementation, using gas-efficient custom errors.
 
 Swaps ETH <> USDC.
 
